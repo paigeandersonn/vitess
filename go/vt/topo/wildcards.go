@@ -180,8 +180,7 @@ func (ts *Server) ResolveWildcards(ctx context.Context, cell string, paths []str
 	}
 
 	result := make([]string, 0, 32)
-	for i := 0; i < len(paths); i++ {
-		subResult := results[i]
+	for _, subResult := range results {
 		if subResult != nil {
 			result = append(result, subResult...)
 		}

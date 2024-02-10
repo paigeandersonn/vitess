@@ -384,7 +384,7 @@ func main() {
 	if *runCount > 1 {
 		var dup []*Test
 		for _, t := range tests {
-			for i := 0; i < *runCount; i++ {
+			for i := range make([]struct{}, *runCount) {
 				// Make a copy, since they're pointers.
 				test := *t
 				test.runIndex = i
@@ -475,7 +475,7 @@ func main() {
 	}()
 
 	// Start the requested number of parallel runners.
-	for i := 0; i < *parallel; i++ {
+	for _ = range make([]struct{}, *parallel) {
 		wg.Add(1)
 		go func() {
 			defer wg.Done()

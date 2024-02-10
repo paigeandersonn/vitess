@@ -425,7 +425,7 @@ func GenerateShardRanges(shards int) ([]string, error) {
 	realEnd := float64(0)
 	shardRanges := make([]string, 0, shards)
 
-	for i := 1; i <= shards; i++ {
+	for i := range make([]struct{}, shards) {
 		realEnd = float64(i) * size
 
 		end = int(realEnd)
