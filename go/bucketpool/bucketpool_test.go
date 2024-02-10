@@ -178,7 +178,7 @@ func TestPoolWeirdMaxSize(t *testing.T) {
 
 func TestFuzz(t *testing.T) {
 	maxTestSize := 16384
-	for i := range make([]struct{}, 20000) {
+	for _ = range make([]struct{}, 20000) {
 		minSize := rand.Intn(maxTestSize)
 		if minSize == 0 {
 			minSize = 1

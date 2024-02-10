@@ -82,7 +82,7 @@ func TestListCountCost(t *testing.T) {
 	}
 	require.Equal(t, 100, l.len)
 	require.Equal(t, 5, l.count)
-	for i := range make([]struct{}, 3) {
+	for _ = range make([]struct{}, 3) {
 		entry := l.PopTail()
 		require.NotNil(t, entry)
 	}
